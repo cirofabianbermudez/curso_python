@@ -1,0 +1,43 @@
+Introduction to Computer Science on edx.org, its MIT 6.001 taught by professor Eric Grimson.
+
+Best way imo, basically a free MIT course. Id recommend going to colab.research.google.com as well to practice the coding you lesrn in your videos. Its an online pytjon coding environment. also free.
+
+
+Good place to start for learning your way around is:
+
+-learn python the hard way (python 3)
+
+-automate the boring stuff
+
+Then progress to:
+
+-the MIT course on open courseware is a good intro to computer science in python. The focus is computer science though (algos and problem solving), not simply coding in python, even though the course is entirely python based.
+
+From there you will want to learn how to use numpy, scipy, Jupyter notebooks etc. It will depend on what you are doing. There is a never ending cycle of googling and stack overflow to help you get through.
+
+
+edx 3 de Junio
+MIT Introduction to Computer Science and Programming Using Python
+
+UDEMY
+Automate the Boring Stuff with Python Programming
+
+
+
+https://www.edx.org/course/introduction-to-python-absolute-beginner-3
+https://www.py4e.com/
+https://www.youtube.com/playlist?list=PLGoJzB271_7r-iLYuEHEPJ5pSIYxXjJEn
+
+	Introduction to Computer Science on edx.org, its MIT 6.001 taught by professor Eric Grimson.
+	Best way imo, basically a free MIT course. Id recommend going to colab.research.google.com as well to practice the coding you lesrn in your videos. Its an online pytjon coding environment. also free.
+
+https://automatetheboringstuff.com/
+Zero to hero python bootcamp course by Jose Portilla.
+Colt Steele's course on Udemy
+Colt's course is good. Personally I've used a combination of his and other courses. Combine his course with Fred Baptise's courses.
+
+LIBROS
+-learn python the hard way (python 3)
+-automate the boring stuff
+
+Python 3: Deep Dive (Part 1 - Functional) Creado por Fred Baptiste

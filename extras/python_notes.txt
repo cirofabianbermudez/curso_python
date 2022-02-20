@@ -1,0 +1,284 @@
+-- Python manual --
+
+- MATH OPERATORS from Highest to Lowest precedence
+
+	Operator	Operation	
+	**			Exponent
+	%			Modulus or remainder
+	//			Integer division
+	/			Division
+	*			Multiplication
+	-			Subtraction
+	+			Addition
+
+- BASIC DATA TYPES
+
+	Data type 					Example
+	Integers					-2,1,4,5,10	
+	Floating point numbers		-1.25, -1.0, 10.5
+	Strings						'Ciro', 'Hello'
+
+- BASIC FUNTIONS
+
+	help()						Ayuda de funciones y objetos
+	print()						Imprime en pantalla
+	len()						Tamaño del objeto
+	input()						Obtener info del ususario
+	str()						Convierte a str
+	int()						Convierte a int
+	float()						Convierte a float
+	range()
+	list()
+	tuple()
+	type()						Detectar tipo de dato
+
+- COMPARISON OPERATORS
+	Operator  			Meaning
+	==					Equal to
+	!=					Non equal to
+	<					Less than
+	>					Greater than
+	<=					Less than or equal to
+	>=					Greater than or equal to
+
+- BOLEAN OPERATORS
+	True False
+	and
+	or
+	not
+
+- IF 
+	Sintaxis
+
+	if statement:
+		do_something
+
+- IF-ELSE
+	Sintaxis
+
+	if statement:
+		do_something
+	else:
+		do_something_else
+
+
+- IF-ELSE-if
+	Sintaxis
+
+	if statement:
+		do_something
+	elif statement:
+		do_something
+	else:
+		do_something_else	
+
+- WHILE
+	Sintaxis
+
+	while statement:
+		do_something
+
+- CONTROL FLOW EXTRA
+	break
+	continue
+
+- simple FOR
+	Sintaxis
+
+	for i in range(5)
+		do_something 
+
+- RANGE() FLEXIBILITIES
+range(12,16)
+range(0,10,2)
+
+
+- IMPORTING MODULES
+	Sintaxis
+
+	import module_name
+	import random, sys, os, math
+
+	import  random
+			random.randint(1,10)			Genera num int aleatorios
+
+	import sys
+			sys.exit()						Exit a program
+
+	import pyperclip
+		pyperclip.copy()
+		pyperclip.paste()
+
+	import copy
+		copy.copy(<list>)
+		copy.deepcopy(<lists>)				if it's a list of lists
+
+	import pprint
+		pprint.pprint()						Imprimir pretty
+		pprint.pformat()					guardar en variable 
+
+- FUNCTIONS
+	Sintaxis
+
+	def funct_name()
+		.....
+		.....
+		return something
+
+- FUNCTION KEYWORDS
+
+	print('',sep='-',end='')	sep: separacion
+								end: fin
+- LOCAL AND GLOBAL SCOPE
+	All is global if it's not inside a function
+	global 		reserve word is use to change that
+
+
+- TRY EXCEPTION
+	Sintaxis
+
+	try:
+		...
+		...
+	except:
+		...
+		...
+
+	example
+
+	def infoValidation(info):
+	    try:
+	        int(info)
+	        textType = 'int'
+	    except ValueError:
+	        try:
+	            float(info)
+	            textType = 'float'
+	        except ValueError:
+	            textType = 'str'
+	    return textType
+
+- LIST DATA TYPE
+	sintaxis
+
+	spam = [1,2,3,4,5,6,7,8,9]
+	spam = [[1,2],[3,4]]
+	spam = ['Ciro','Julie','Ale']
+	spam = []
+
+- INDEXING
+	spam = ['Ciro','Julie','Ale']	
+	spam[0] = 'Ciro'
+	spam[1] = 'Julie'
+	spam[-1] = 'Ale'
+
+	x = [[1,2],[3,4]]
+	x[0][0] = 1
+
+- SLICES
+	x = [1,2,3,4,5,6,7,8,9]
+	x[0:]		desde el elemento cero hasta el final
+	x[0:2]		desde el elemento cero hasta pero no incluyendo 2
+
+- LIST CONCATENATICO
+	[1,2,3] + [4,5,6] = [1,2,3,4,5,6]
+
+- REMOVING VALUES
+	x = [1,2,3,4,5,6]
+	del x[0]
+	x = [2,3,4,5,6]
+
+- FOR LOOPS WITH LISTS
+
+	for i in [0,1,2,3,4]:
+    	print(i)
+
+    for i in range(len(supplies)):
+		print('Index ' + str(i) + ' in supplies is: ' + supplies[i])
+
+- in AND not in OPERATOR
+	example:
+
+	x = [1,2,3,4,5,6]
+	5 in x 			True
+	20 in x			False
+	5 not in x		False
+
+- MULTIPLE ASSIGNMENT TRICK
+
+	cat = ['fat', 'black', 'loud']
+	size, color, disposition = cat
+
+- AUGMENTED ASSIGMENT OPERATORS
+	
+	spam = spam + 1			spam += 1
+	spam = spam - 1			spam -= 1
+	spam = spam * 1			spam *= 1
+	spam = spam / 1			pam /= 1
+	spam = spam % 1			spam %= 1
+
+	
+- METHODS for LISTS
+	x = list('Ciro')
+	['C', 'i', 'r', 'o']
+
+	x.index('r') = 2
+	x.append('Julie') = ['C', 'i', 'r', 'o', 'Julie']
+	x.insert(0,'Jules') = ['Jules', 'C', 'i', 'r', 'o', 'Julie']
+	x.remove('o')  = ['Jules', 'C', 'i', 'r', 'Julie']
+	x.sort()		reverse=True, key=str.lower
+
+
+- EXCEPTION IDENTATION
+	use \ in the end of a line
+	in list it doesnt matter
+
+- MUTABLE AND INMUTABLE DATA TYPES
+
+	list are mutable
+	strings are inmutable, but it can be changue with string concatenation
+	tuple is inmutable, is a inmutable list
+
+- TUPLE DATA TYPE
+	tuples are faster than lists
+	Need () instead od [], is inmutable 
+	x = ('lolo',)		needs the comma
+	x = (1,2,'pepe')
+
+- REFERENCE
+
+	 When you assign a list to a variable, you are actually assigning 
+	 a list reference to the variable. A reference is a value  that 
+	 points to some bit of data, and a list reference is a value that 
+	 points to a list.
+
+		>>> spam = [0, 1, 2, 3, 4, 5]
+		>>> cheese = spam
+		>>> cheese[1] = 'Hello!'
+		>>> spam
+		[0, 'Hello!', 2, 3, 4, 5]
+		>>> cheese
+		[0, 'Hello!', 2, 3, 4, 5]
+
+- DICTIONARY DATA TYPE
+	Dictionaries are unorder
+
+	myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}
+	myCat['size']		'fat'
+
+	Add an element to the dictionary
+	myCat['age'] = '15'	
+
+
+- DICTIONARIES FUCTIONS
+
+	spam = {'color': 'red', 'age': 42}
+
+	spam.values()					ver todos los valores
+	spam.keys()						ver todas las keys
+	spam.items()					list of tuples
+	spam.get(<key>, 0)				Value of key and fallback if fails	
+	spam.setdefault(<key>,<value>)	Agrega si no existe, sino no hace nada
+
+- DATA STRUCTUREE
+
