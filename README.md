@@ -552,6 +552,116 @@ z = [i for i,j in zip(x,y) if i != j]
 
 
 
+* Las clases son definiciones combinando información (conocida como `attributes`, `properties`, `data members`, `variables`,  o `fields`)  con `functions`(también conocidos como `methods`). Las definiciones de clases son utilizadas para crear copias o `instances` de una clase, comúnmente conocidos como `objects`. Los objetos pueden representar entidades del mundo real (como carros o gatos) o conceptos más abstractos (como vehículos o mamífero). Cada objeto es único en la memoria de la computadora y representa una parte de un modelo general. Las clases y los objetos se pueden encontrar en varios paradigmas de programación, pero son una parte integral de la OOP (Object Oriented Programming), en el que los programas están formados por objetos que interactúan entre sí.
+
+  * Las clases son las definiciones de nuevos tipos de objeto, y por las cuales nuevas `instances` de objetos son creadas. A menudo agrupan datos con código o funciones que operan con esos datos. En este sentido, las clases son planos o conjuntos de instrucciones a partir de los cuales se pueden construir y utilizar muchos objetos de un tipo similar. Un programa complejo puede tener muchas clases, cada una de las cuales crea muchos sabores diferentes de objetos. El proceso de construir un objeto a partir de una clase se conoce como instanciación (o creación de una instancia de la clase).
+
+  * Una definición de clase en Python es sencilla:
+
+    ```python
+    class MyClass:
+        # Class body goes here
+    ```
+
+  * Los campos de la clase (también conocidas como `properties`, `attributes`, `data members`, o `variables`) pueden añadirse al cuerpo de la clase:
+
+    ```python
+    class MyClass:
+        number = 5
+        string = "Hello!"
+    ```
+
+  * Una instancia (objeto) de `MyClass` se puede crear o unir a un nombre llamando a la clase, de la misma manera en la que se llama a una función:
+
+    ```python
+    new_object = MyClass()
+    ```
+
+  * `Class attributes` son compartidos por todos los objetos (o instancias ) creadas por una clase, y pueden accederse vía `dot notation` aka un `.` colocado después del nombre del objeto y antes del nombre del atributo.
+
+    ```python
+    new_object = MyClass()
+    new_object.string
+    ```
+
+  * Los atributos de clase se definen en el cuerpo de la clase misma, antes que cualquier otro método. Son propiedad de la clase, lo que les permite compartirse entre instancias de la clase. Debido a que estos atributos son compartidos, se puede acceder a su valor y manipularlo directamente desde la clase. La alteración del valor de los atributos de clase altera el valor de **todos los objetos instanciados desde la clase**:
+
+    ```python
+    obj_one = MyClass()
+    obj_two = MyClass()
+    obj_two.number
+    MyClass.number
+    MyClass.number = 27
+    obj_one.number
+    obj_two.number
+    ```
+
+  * Tener un montón de objetos con datos sincronizados en todo momento no es particularmente útil. Afortunadamente, los objetos creados a partir de una clase se pueden personalizar con sus propios `instance attributes` (o instance properties, variables, or fields). Como sugiere su nombre, los atributos de instancia son únicos para cada objeto y se pueden modificar de forma independiente.
+
+  * El [dunder method](https://www.dataindependent.com/python/python-glossary/python-dunder/) (short for double underscore method) `__init__()` es usado para personalizar las instancias de la clase, y puede utilizarse para inicializar los atributos o propiedades de una instancia. Por su papel en la inicialización de atributos de instancia, `__init__()` también se conoce como constructor o inicializador de clase. `__init__()` toma un parámetro requerido llamado `self`, que se refiere al objeto recién inicializado o creado. Los datos de atributos o propiedades de instancia se pueden pasar como argumentos de `__init__()`, siguiendo el parámetro `self`.
+
+  * A continuación, `MyClass` ahora tiene atributos de instancia llamados `location_x` y `location_y`. Como puede ver, los dos atributos se han asignado al primer y segundo índice del argumento de `location` (una tupla) que se ha pasado a `__init__()`. Los atributos `location_x` y `location_y` para una instancia de clase ahora se inicializarán cuando cree una instancia de la clase y se cree un objeto:
+
+     ```python
+     class MyClass:
+         number = 5
+         string = "Hello!"
+         
+         def __init__(self, location):
+             self.location_x = location[0]
+             self.location_y = location[1]
+             
+     new_object_one = MyClass((1, 2))
+     new_object_two = MyClass((-8, -9))
+     new_object_one.location_x
+     new_object_two.location_x
+     ```
+
+  * Tenga en cuenta que solo necesita pasar un argumento al inicializar `MyClass` arriba: Python se encarga de pasarse `self` cuando se llama a la clase.
+
+  * Un `method` es una función que está vinculada a la clase misma (conocido como [class method](https://stackoverflow.com/questions/17134653/difference-between-class-and-instance-methods), que se analizará en un ejercicio posterior) o a una instancia de la clase (objeto). Los métodos que operan en un objeto (instancia) deben definirse con `self` como primer parámetro. A continuación, puede definir el resto de los parámetros como lo haría para una función "normal" o no vinculada.
+
+  * Al igual que el acceso a los atributos, llamar a un método simplemente requiere colocar un `.` después del nombre del objeto y antes del nombre del método. El método llamado no necesita una copia del objeto como primer parámetro. Python completa `self` automáticamente.
+
+  * Se puede acceder a los atributos de clase desde dentro de los métodos de instancia de la misma manera que se accede fuera de la clase.
+
+  * La palabra clave `pass` es un marcador de posición sintácticamente válido: evita que Python arroje un error de sintaxis o un error` NotImplemented` para una función o definición de clase vacía. Esencialmente, es una forma de decirle al intérprete de Python: ¡No te preocupes! Eventualmente pondré el código aquí, solo que aún no lo he hecho.
+
+    ```python
+    class MyClass:
+        number = 5
+        string = "Hello!"
+    
+        def __init__(self, location):
+            self.location_x = location[0]
+            self.location_y = location[1]
+    
+        def change_location(self, amount):
+            self.location_x += amount
+            self.location_y += amount
+            return self.location_x, self.location_y
+    
+        def increment_number(self):
+            MyClass.number += 1
+            
+    	def pending_functionality(self):
+           pass
+    
+    test_object = MyClass((3,7))
+    (test_object.location_x, test_object.location_y)
+    test_object.change_location(7)
+    
+    test_object_one = MyClass((0,0))
+    test_object_one.number
+    test_object_two = MyClass((13, -3))
+    test_object_two.increment_number()
+    test_object_one.number
+    ```
+
+  * asd
+
+  
+
 
 
 
@@ -565,6 +675,8 @@ z = [i for i,j in zip(x,y) if i != j]
 Object-oriented programming is a [programming paradigm](http://en.wikipedia.org/wiki/Programming_paradigm) that provides a means of structuring programs so that properties and behaviors are bundled into individual **objects**.
 
 For instance, an object could represent a person with **properties** like a name, age, and address and **behaviors** such as walking, talking, breathing, and running. Or it could represent an [email](https://realpython.com/python-send-email/) with properties like a recipient list, subject, and body and behaviors like adding attachments and sending.
+
+
 
 
 
