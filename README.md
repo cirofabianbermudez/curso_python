@@ -145,6 +145,10 @@
       print("Son iguales")
   ```
 
+
+
+## Strings
+
 * Los `str` son **secuencias inmutables**.
 
   * Se puede utilizar la estructura `for item in <str>` o `for index, item in enumerate(<str>)` para realizar operaciones de secuencias comunes.
@@ -226,6 +230,10 @@
     ```python
     raise ValueError("Meaningful error message.")
     ```
+
+
+
+## Lists
 
 * Las `list` son una colección de elementos en secuencia **mutable**. Son una estructura de dato extremadamente útiles.
 
@@ -328,6 +336,10 @@
     * [**Lists and Tuples in Python (Real Python)**](https://realpython.com/python-lists-tuples/)
     * [**Python Lists (Google for Education)**](https://developers.google.com/edu/python/lists)
 
+
+
+## Loops
+
 * Los **loops** son parte fundamental de la programación
 
   * `while`
@@ -374,7 +386,10 @@
         print(f"Found the above b-words, out of {len(word_list)} words in the word list.")
     ```
 
-    
+
+
+
+## Tuples
 
 * Las `tuples` son colecciones de elementos en secuencia **inmutables**.
 
@@ -397,51 +412,50 @@
 
 
 
-
+## Dictionaries
 
 
 - Los `dict` es una estructura de dato de **tipo mapeo** que asocia por medio de un **hash** una `key` y un `value`. 
 
-
   - `keys` pueden ser `numbers`, `str`, `tuples`, o `frozensets`. 
-
+  
   - `values` pueden ser cualquier tipo de dato o estructura, incluyendo otros diccionarios, tipos internos o personalizados, o incluso objetos como funciones o clases. 
-
+  
   - Los diccionarios permiten extraer un `value` en un tiempo promedio constante, dada una `key`. 
-
+  
   - Comparado con una `list`, los `dict` usan significativamente más espacio de memoria.
-
+  
   - La búsqueda por medio de la llave es más eficiente que en una lista.
-
+  
   - Los diccionarios son especialmente útiles en escenarios donde la colección de elementos es grande y es necesario acceder o actualizar los datos datos de manera frecuente.
-
+  
   - Para crear un diccionario se puede utilizar la función `dict()`, la cual es un constructor de clase. o con declaración directa con la siguiente sintaxis: algo importante a tener en cuenta es que `keys` son tipo `str` y se usa `:` en lugar del signo igual.
-
+  
     ```python
-    bear = dict( name="Black Bear", speed=40, land_animal=True )
-    whale = {"name": "Blue Whale", "speed": 35, "land_animal": False}
+      bear = dict( name="Black Bear", speed=40, land_animal=True )
+      whale = {"name": "Blue Whale", "speed": 35, "land_animal": False}
     ```
-
+  
   - Para acceder a un valor del diccionario se hace `bear["speed"]` o  `bear.get("speed")`
-
+  
   - Para cambiar valores se hace de la siguiente manera:
-
+  
     ```python
-    bear["name"] = "Grizzly Bear"
-    whale["speed"] = 25
+      bear["name"] = "Grizzly Bear"
+      whale["speed"] = 25
     ```
-
+  
   - Para bucles en los diccionario podemos utilizar `for key in <dict>`
-
+  
   - La mejor manera para trabajar diccionarios en bucles es:
-
+  
     ```python
-    for key,value in <dict>.items():
-      	print(f'key: {key} \t value: {value}')
+      for key,value in <dict>.items():
+        	print(f'key: {key} \t value: {value}')
     ```
-
+  
   - Funciones con diccionarios:
-
+  
     | Función                            | Descripción                                        |
     | ---------------------------------- | -------------------------------------------------- |
     | `<dict>.keys()`                    |                                                    |
@@ -451,7 +465,8 @@
     | `<dict>.setdefault(<key>,<value>)` | Argumento extra `default` si no encuentra la `key` |
     | `<dict.count()>`                   |                                                    |
 
-    
+
+## Sets
 
 
 - Un `set` es una colección de objetos **hashable** desordenados y **mutables**. Los elementos de un `set` son únicos y no se permiten los duplicados.
@@ -526,6 +541,83 @@
 
 
 
+## *args y **kwargs
+
+Para crear funciones de un tamaño no definido de entradas podemos utilizar la siguiente sintaxis:
+
+`*args` es una tupla con todos los elementos que se hallan ingresado
+
+`**kwargs` es un diccionario de un número indeterminado de elementos.
+
+```python
+def multiplicacion(*args):
+    count = 1
+    for arg in args;
+    	count *= arg
+        
+def func(**kwargs):
+    if 'fruit' in kwargs:
+        print(f"Mi fruta escogida es {kwargs['fruit']}")
+    else:
+        print('No hay fruta')
+
+func(fruit='manzana', veggie='lechuga')
+```
+
+
+
+## Lambda, mapas y filtos
+
+Los mapas es una forma de utilizar una función de un solo argumento y poder pasarle una lista
+
+```python
+numeros = [1,2,3,4,5]
+
+def square(num):
+    return num**2
+
+for item in map(square,numeros):
+    print(item)
+
+print(list(map(square,numeros)))
+
+```
+
+
+
+Los filtros sirven para filtrar una lista si tenemos una función para hacerlo
+
+```python
+numeros = [1,2,3,4,5,6,7]
+
+def check_even(num):
+    return num % 2 == 0
+
+for i in filter(check_even,numeros):
+    print(i)
+
+print(list(filter(check_even,numeros)))
+
+print( [ j for j in numeros if j%2==0] )  # Con comprehension list
+```
+
+
+
+Las funciones lambda simplemente son otra manera de declarar funciones de una manera más reducida, usamos este tipo de funciones cuando necesitamos utilizar varias funciones juntas	
+
+```python
+square = lambda num: num ** 2
+print(square(5))
+
+print(list(map(lambda num: num ** 2,numeros)))
+
+print(list(filter(lambda num: num % 2 == 0,numeros)))
+```
+
+
+
+
+
 ## Comprehension list
 
 Lo mejor es dar algunos ejemplos para entender su funcionamiento:
@@ -551,6 +643,8 @@ z = [i for i,j in zip(x,y) if i != j]
 ```
 
 
+
+## Clases
 
 * Las clases son definiciones combinando información (conocida como `attributes`, `properties`, `data members`, `variables`,  o `fields`)  con `functions`(también conocidos como `methods`). Las definiciones de clases son utilizadas para crear copias o `instances` de una clase, comúnmente conocidos como `objects`. Los objetos pueden representar entidades del mundo real (como carros o gatos) o conceptos más abstractos (como vehículos o mamífero). Cada objeto es único en la memoria de la computadora y representa una parte de un modelo general. Las clases y los objetos se pueden encontrar en varios paradigmas de programación, pero son una parte integral de la OOP (Object Oriented Programming), en el que los programas están formados por objetos que interactúan entre sí.
 
@@ -658,29 +752,9 @@ z = [i for i,j in zip(x,y) if i != j]
     test_object_one.number
     ```
 
-  * asd
+  * Add more info if needed
 
   
-
-
-
-
-
-
-
-## OOP Object Oriented Programming
-
-**Object-oriented programming** (OOP) is a method of structuring a program by bundling related properties and behaviors into individual **objects**. 
-
-Object-oriented programming is a [programming paradigm](http://en.wikipedia.org/wiki/Programming_paradigm) that provides a means of structuring programs so that properties and behaviors are bundled into individual **objects**.
-
-For instance, an object could represent a person with **properties** like a name, age, and address and **behaviors** such as walking, talking, breathing, and running. Or it could represent an [email](https://realpython.com/python-send-email/) with properties like a recipient list, subject, and body and behaviors like adding attachments and sending.
-
-
-
-
-
-
 
 ## Imprimir la lista de todos los métodos de una clase
 
@@ -691,15 +765,206 @@ print(method_list)
 method_list = [attribute for attribute in dir(MyClass) if callable(getattr(MyClass, attribute)) and attribute.startswith('__') is False]
 print(method_list)
 
+x = [ i for i in dir(plt.axhline()) if 'line' in i ]
 ```
 
 
 
-## PIP
+## Manejador de paqutes PIP
 
-| Comando                      | Descripción         |
-| ---------------------------- | ------------------- |
-| `pip install <package_name>` | instalar un paquete |
+| Comando                               | Descripción                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| `pip install <package_name>`          | instalar un paquete                                          |
+| `pip list`                            | Ver los paquetes instalados                                  |
+| `python -m pip install --upgrade pip` | Actualizar pip                                               |
+| `pip freeze`                          | Para ver los paquetes instalados en pip                      |
+| `pip install -r requirements.txt`     | Para instalar todos los paquetes dentro de `requirements.txt` |
+| `pip list --local`                    | Listas todos los paquetes instalados en el entorno virtual diferentes del python base |
+| `pip freeze --local`                  | Lista solo los paquetes instalados que no están dentro de la librería estandar |
+
+
+
+## VENV python en windows
+
+Los entornos virtuales son una manera de encapsular todas las dependencias de paquetes necesarios para un proyecto sin la necesidad de instalar los paquetes en nuestro python base. Si actualizamos algún paquete en nuestro python base esto podría provocar conflictos en proyectos antiguos. Por todo lo anterior es una buena practica trabajar con entornos virtuales y encapsular los paquetes y las versiones de los mismos. Para utilizar `venv` es necesario trabajar con python 3.3 o mayor. Al crear el entorno virtual la versión de python del entorno será la misma que la de nuestro python base.
+
+Los pasos para crear un entorno virtual son los siguientes:
+
+1. Para ver todos los módulos instalados en nuestro python base podemos utilizar el comando:
+
+   ```python
+   help("modules")
+   ```
+
+2. Por defecto debe venir instalado `venv` sin embargo no esta de más comprobar. Para crear un entorno virtual ejecutamos:
+
+   ```
+   python -m venv <enviroment_name>
+   ```
+
+3. Si creamos un entorno con el nombre `inflacion`, para activar el entorno utilizamos el siguiente comando:
+
+   ```
+   inflacion\Scripts\activate.bat
+   ```
+
+4. Si estamos trabajando dentro de PowerShell se ejecuta el siguiente comando en su lugar:
+
+   ```
+   .\inflacion\Scripts\Activate.ps1
+   ```
+
+5. Para salir del entorno virtual se ejecuta el siguiente comando:
+
+   ```
+   deactivate
+   ```
+
+6. Una vez activado el entorno virtual se debe ver entre paréntesis el nombre del entorno virtual. Para comprobar que todo funciona correctamente ejecutamos el primer comando en el cmd o el segundo PowerShell para ver la ubicación de python:
+
+   ```
+   where python
+   where.exe python
+   ```
+
+7. Actualizar pip utilizando el comando:
+
+   ```
+   python -m pip install --upgrade pip
+   ```
+
+8. Los paquetes que se instalen solo se instalan en el entorno virtual mientras este activado. Para exportar los paquetes que se utilizan en entorno virtual utilizamos el siguiente comando y copiamos la salida a un archivo de texto llamado`requirements.txt`, para hacerlo de manera automática en PowerShell utilizamos el segundo comando:
+
+   ```
+   pip freeze
+   pip freeze | Out-File requirement.txt
+   ```
+
+9. Para borrar en entorno virtual únicamente hay que desactivar el entorno, y después ejecutar el comando, `\s` es para borrar recursivamente, el segundo comando es personalizado, no utilizar:
+
+   ```
+   rmdir inflacion /s
+   rmu -rf inflacion
+   ```
+
+10. La convención es crear una carpeta con el nombre del proyecto y adentro crear el entorno virtual con el nombre `venv`.
+
+11. Nunca poner los archivos dentro de la carpeta `venv`, los archivos se deben poner dentro de la carpeta del proyecto. De esta manera de ser necesario borrar y crear nuevamente el entorno virtual se puede hacer sin perder información.
+
+12. Nunca poner el entorno virtual en un control de versiones como git, simplemente poner el `requirement.txt` para que la persona que lo ejecute en su computadora instale las dependencias necesarias.
+
+13. Para crear un entorno virtual con todos los paquetes de nuestro python base utilizamos el siguiete comando:
+
+    ```
+    python -m venv venv --system-site-packages
+    ```
+
+14. Para ver los paquetes instalados únicamente en el entorno virtual utilizamos
+
+    ```
+    pip list --local
+    ```
+
+15. Los paquetes que más utilizo son:
+
+    ```
+    numpy
+    matplotlib
+    pandas
+    jupyterlab
+    ```
+
+    
+
+## numpy, matplotlib, pandas
+
+https://matplotlib.org/3.5.1/api/matplotlib_configuration_api.html#matplotlib.rcParams
+
+https://matplotlib.org/3.5.1/api/_as_gen/matplotlib.pyplot.grid.html#matplotlib.pyplot.grid
+
+https://matplotlib.org/3.5.1/api/_as_gen/matplotlib.pyplot.savefig.html
+
+https://matplotlib.org/3.5.1/api/_as_gen/matplotlib.pyplot.rc.html#matplotlib.pyplot.rc
+
+http://omz-software.com/pythonista/matplotlib/users/usetex.html
+
+https://matplotlib.org/3.5.0/tutorials/text/usetex.html
+
+
+
+## pandas
+
+En pandas `df` significa Data Frame, y su funcionalidad e indexación es muy similar a la de diccionarios pero con muchísimas más funcionalidades.
+
+En pandas cuando se extrae una columna se convierte en un objeto `Series`, se puede comprobar con la función `type()`
+
+
+
+| Comando                                   | Descripción               |
+| ----------------------------------------- | ------------------------- |
+| `df = pd.read_csv('')`                    |                           |
+| `df.shape `                               |                           |
+| `df.info()`                               |                           |
+| `pd.set_option('display.max_columns',48)` |                           |
+| `pd.set_option('display.max_rows',48)`    |                           |
+| `df.head()`                               |                           |
+| `df.tail()`                               |                           |
+| `df = pd.DataFrame(people)`               |                           |
+| `df.email` o `df['email']`                | Preferible usar corchetes |
+| `df[0:1]`                                 |                           |
+| `df[['email','first']]`                   |                           |
+| `df.columns`                              |                           |
+| `df.iloc[0]`                              | Integer location          |
+| `df.iloc[[0]]`                            |                           |
+| `df.iloc[[0,2]]`                          |                           |
+| `df.iloc[[0,2],[0,2]]`                    |                           |
+| `df.loc[0]`                               | location with label       |
+| `df.loc[[0]]`                             |                           |
+| `df.loc[[0,1]]`                           |                           |
+| `df.loc[[0,1],'email']`                   |                           |
+| `df.loc[[0,1],['email', 'first']]`        |                           |
+
+
+
+```python
+people = {
+    'first' : ['Corey', 'Jane', 'John'],
+    'last'  : ['Schafer', 'Doe', 'Doe'],
+    'email'  : ['corey@gmail.com', 'jane@gmail.com', 'john@gmail.com']
+}
+df = pd.DataFrame(people)
+df['email']
+type(df['email'])
+df.email[1]
+df[['email','first']]
+type(df[['email','first']])
+df.columns
+df.iloc[0]
+df.iloc[[0,2]]
+df.iloc[[0,2],[0,2]]
+df.loc[[0]]
+df.loc[[0,1]]
+df.loc[[0,1],['email', 'first']]
+df.set_index('email')
+df.index
+
+```
+
+
+
+## jupyterlab y jupyter notebooks
+
+```
+jupyter notebooks
+jupyter lab
+```
+
+1. De preferencia siempre utilizar jupyterlab ya que tiene más funcionalidades y la página oficial recomienda su uso sobre jupyter notebooks.
+2. Para ejecutar una celda de código presionamos`Shift + Enter `
+
+
+
+
 
 
 
