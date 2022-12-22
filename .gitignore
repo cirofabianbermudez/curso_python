@@ -1,7 +1,6 @@
 ## files:
 *.bak
 
-
 ## Ignore folders
-datascience/venv
-
+extras/datascience/venv
+extras/inflacion/venv
